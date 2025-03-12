@@ -5,6 +5,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import static io.restassured.RestAssured.baseURI;
+import static io.restassured.RestAssured.delete;
 
 public class BaseTest {
 
@@ -15,6 +16,7 @@ public class BaseTest {
 public void setUp() {
     baseURI = "https://rmznkubanov.kaiten.ru/api/latest/";
 }
+
 
     @AfterTest
     public void tearDown() {

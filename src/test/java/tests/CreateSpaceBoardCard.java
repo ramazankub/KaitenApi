@@ -5,6 +5,7 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
@@ -38,43 +39,13 @@ public class CreateSpaceBoardCard extends BaseTest {
 
     @Test(priority = 2)
     public void createBoard() {
+
         Response response = given()
                 .contentType(ContentType.JSON)
                 .header("Authorization", token)
                 .body("{\n" +
-                        "  \"title\": \"Test Json File Fields\",\n" +
-                        "  \"columns\": [\n" +
-                        "    {\n" +
-                        "      \"title\": \"To do\",\n" +
-                        "      \"type\": 1\n" +
-                        "    },\n" +
-                        "    {\n" +
-                        "      \"title\": \"In progress\",\n" +
-                        "      \"type\": 2\n" +
-                        "    },\n" +
-                        "    {\n" +
-                        "      \"title\": \"Done\",\n" +
-                        "      \"type\": 3\n" +
-                        "    }\n" +
-                        "  ],\n" +
-                        "  \"lanes\": [\n" +
-                        "    {\n" +
-                        "      \"title\": \"Вот что такое lanes\",\n" +
-                        "      \"type\": 2\n" +
-                        "    }\n" +
-                        "  ],\n" +
-                        "  \"description\": \"my description\",\n" +
-                        "  \"top\": 1,\n" +
-                        "  \"left\": 1,\n" +
-                        "  \"default_card_type_id\": 1,\n" +
-                        "  \"first_image_is_cover\": false,\n" +
-                        "  \"reset_lane_spent_time\": false,\n" +
-                        "  \"automove_cards\": false,\n" +
-                        "  \"backward_moves_enabled\": false,\n" +
-                        "  \"auto_assign_enabled\": false,\n" +
-                        "  \"sort_order\": 1,\n" +
-                        "  \"column_id\": 1,\n" +
-                        "  \"external_id\": 5\n" +
+                        " \"title\": \"Card\",\n" +
+                        //" \"board_id\": {{boardId}}\n" +
                         "}")
                 .when()
                 //spaces/{space_id}/boards

@@ -1,0 +1,19 @@
+{
+  "title": "updated",
+  "description": "test",
+  "top": 1,
+  "left": 1,
+  "type": 1,
+  "cell_wip_limits": [],
+  "default_card_type_id": 1,
+  "default_tags": "update",
+  "first_image_is_cover": false,
+  "reset_lane_spent_time": false,
+  "automove_cards": false,
+  "backward_moves_enabled": false,
+  "move_parents_to_done": false,
+  "hide_done_policies": false,
+  "hide_done_policies_in_done_column": false,
+  "sort_order": 1,
+  "external_id": 1
+}
