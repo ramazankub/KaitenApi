@@ -20,7 +20,7 @@ public class CreateSpace extends BaseTest {
 
     private final List<String> getValue = new ArrayList<>();
 
-    @Test
+    @Test(priority = 1)
     @Description("Создание нового пространства")
     @Link("https://joyous-statistic-1d5.notion.site/Rest-Assured-Kaiten-9065dda6854e465d978f118cca4469ae#:~:text = " +
             "Написать минимум 5 end-to-end тест-кейсов в цепочке должно быть хотя бы 2 запроса и запрос на удаление, " +
