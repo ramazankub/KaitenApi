@@ -13,7 +13,7 @@ import static io.restassured.RestAssured.given;
 public class FileTest extends BaseTest {
     @Test
     public void createNewSpace() {
-        File json = new File("src\\test\\resources\\jsonFiles\\createBoard.json");
+        File json = new File("src/test/resources/jsonFiles/createBoard.json");
         Response response = given()
                 .contentType(ContentType.JSON)
                 .header("Authorization", token)
