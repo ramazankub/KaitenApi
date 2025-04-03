@@ -26,8 +26,8 @@ public class FileTest extends BaseTest {
                 .extract().response();
 
         Assert.assertEquals(response.statusCode(), 200);
-        Assert.assertEquals(response.jsonPath().getString("title"), "test");
+        Assert.assertEquals(response.jsonPath().getString("title"), "Test Json File Fields");
         Assert.assertFalse(response.jsonPath().getBoolean("archived"));
-        Assert.assertEquals(response.jsonPath().getString("external_id"), "1");
+        Assert.assertEquals(response.jsonPath().getString("external_id"), "5");
     }
 }
