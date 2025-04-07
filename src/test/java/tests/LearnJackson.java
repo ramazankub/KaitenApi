@@ -19,8 +19,7 @@ import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
-public class LearnJackson
-        extends BaseTest{
+public class LearnJackson extends BaseTest{
     private static final ObjectMapper mapper = new ObjectMapper();
     private final HashMap<String, String> getValue = new HashMap<>();
 

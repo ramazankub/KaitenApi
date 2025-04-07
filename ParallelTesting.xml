@@ -1,0 +1,12 @@
+<suite name="Parallel Test Suite" parallel="classes" thread-count="2">
+    <test name="LearnJackson">
+        <classes>
+            <class name="tests.LearnJackson"/>
+        </classes>
+    </test>
+    <test name="CreateAndBlockCard">
+        <classes>
+            <class name="tests.CreateAndBlockCard"/>
+        </classes>
+    </test>
+</suite>
