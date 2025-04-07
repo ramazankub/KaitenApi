@@ -1,5 +1,8 @@
 package tests.fileExample.pojo.forBoard;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,6 +12,7 @@ import java.util.List;
 @Setter
 @Getter
 @Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BoardExample {
     private String title;
     private List<Column> columns;
@@ -25,7 +29,13 @@ public class BoardExample {
     private int sort_order;
     private int external_id;
 
-    public BoardExample(String title, List<Column> columns, List<Lane> lanes, int sort_order, int default_card_type_id) {
+    @JsonCreator
+    public BoardExample(
+                       @JsonProperty("title") String title,
+                       @JsonProperty("columns") List<Column> columns,
+                       @JsonProperty("lanes") List<Lane> lanes,
+                       @JsonProperty("sort_order") int sort_order,
+                       @JsonProperty("default_card_type_id") int default_card_type_id) {
         this.title = title;
         this.columns = columns;
         this.lanes = lanes;

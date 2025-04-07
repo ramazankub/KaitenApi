@@ -60,9 +60,13 @@ public class LearnJackson
         Lane lane = new Lane("Test", 1);
         List<Lane> lanes = List.of(lane);
 
-        BoardExample boardExample = new BoardExample("Test board", columns, lanes, 1, 1);
+        BoardExample boardExample = new BoardExample("Test Board", columns, lanes, 1, 1);
 
         String jsonBody = mapper.writeValueAsString(boardExample);
+
+        String prettyJson = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(boardExample);
+        System.out.println("===JSON, который пришел===");
+        System.out.println(prettyJson);
 
         Response response = given()
                 .header("Authorization", token)
@@ -101,7 +105,27 @@ public class LearnJackson
                 .then()
                 .log()
                 .all()
-                .extract().response();
+                .extract()
+                .response();
+
+        System.out.println("Received JSON" + response.asString());
+
+        try {
+            BoardExample deserializedResponse = mapper.readValue(response.asString(), BoardExample.class);
+
+            System.out.println("Board ID: " + deserializedResponse.getTitle());
+            System.out.println("Columns: " );
+            for (Column column : deserializedResponse.getColumns()) {
+                System.out.println("- " + column.getTitle() + ", " + column.getType());
+            }
+
+            Assert.assertEquals(deserializedResponse.getTitle(), "Test Board");
+            Assert.assertNotNull(deserializedResponse);
+            Assert.assertFalse(deserializedResponse.getColumns().isEmpty());
+
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException("Ошибка при десериализации", e);
+        }
 
         Assert.assertEquals(response.statusCode(), 200);
     }
